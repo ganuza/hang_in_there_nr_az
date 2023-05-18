@@ -101,12 +101,13 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 var randomizeButton = document.querySelector('.show-random');
-var makePosterButton = document.querySelector('.make-poster');
+var makePosterButton = document.querySelector('.show-form');
 
 // event listeners go here 👇
 document.addEventListener("load", generateRandomPoster());
 randomizeButton.addEventListener("click", generateRandomPoster);
-makePosterButton.addEventListener("click", unhideMakeOwnPoster());
+makePosterButton.addEventListener("click", unhidePosterForm)
+makePosterButton.addEventListener("click", hideMainPoster);
 ;
 // addEventListener('click', clickHandler)
 // functions and event handlers go here 👇
@@ -143,10 +144,17 @@ function populatePosterFields() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Iteration 1
-  // job of this function is to find the new-form and remove the hidden class
+  // job of this function is to find the poster-form and remove the hidden class
   // also find the current poster class and add the hidden class
 
+function unhidePosterForm(){
+  var unhide = document.querySelector(".poster-form")
+  unhide.classList.remove('hidden')
+  return unhidePosterForm
+}
 
-
-
-// var hide = document.getElementsByClassName('show-random').hidden = true
+function hideMainPoster() {
+  var hide = document.querySelector('.main-poster')
+  hide.classList.add('hidden')
+  return hideMainPoster
+}
